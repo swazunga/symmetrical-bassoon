@@ -23,9 +23,9 @@ function addToDatabase() {
   const getAllTransactions = store.getAll();
   getAllTransactions.onsuccess = function () {
     if (getAllTransactions.result.length > 0) {
-      fetch("api/transaction/bulk", {
+      fetch("/api/transaction/bulk", {
         method: "post",
-        body: JSON.stringify(getAllTransactions.results),
+        body: JSON.stringify(getAllTransactions.result),
         headers: {
           Accept: "application/json, text/plain, */*",
           "Content-Type": "application/json",
